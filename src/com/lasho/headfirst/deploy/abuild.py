@@ -124,7 +124,7 @@ def mvn_build():
     os.system('mkdir -p '+log_path+' 2>/dev/null >/dev/null')
     os.system("echo '' > "+log_path+"/mvn_build.log")
     os.chdir(src_target_path)
-    os.system('mvn clean install -DskipTests -Dautoconfig.userProperties='+antx_prop_path +' > ../'+log_path+'/mvn_build.log')
+    os.system('mvn clean install -DskipTests autoconf:autoconf -DuserProp='+antx_prop_path +' > ../'+log_path+'/mvn_build.log')
 
     print ('mvn_build finished!')
     
